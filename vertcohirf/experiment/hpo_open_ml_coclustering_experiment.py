@@ -1,0 +1,31 @@
+from cohirf.experiment.hpo_clustering_experiment import HPOClusteringExperiment
+from vertcohirf.experiment.open_ml_coclustering_experiment import OpenmlCoClusteringExperiment
+
+
+class HPOOpenmlCoClusteringExperiment(HPOClusteringExperiment, OpenmlCoClusteringExperiment):
+
+    def _load_simple_experiment(
+        self, combination: dict, unique_params: dict, extra_params: dict, mlflow_run_id: str | None = None, **kwargs
+    ):
+        experiment = OpenmlCoClusteringExperiment(
+            # experiment parameters
+            experiment_name=self.experiment_name,
+            log_dir=self.log_dir,
+            log_file_name=self.log_file_name,
+            work_root_dir=self.work_root_dir,
+            save_root_dir=self.save_root_dir,
+            clean_work_dir=self.clean_work_dir,
+            clean_data_dir=False,
+            raise_on_error=self.raise_on_error,
+            mlflow_tracking_uri=self.mlflow_tracking_uri,
+            check_if_exists=self.check_if_exists,
+            profile_memory=self.profile_memory,
+            profile_time=self.profile_time,
+            verbose=0,
+        )
+        return experiment
+
+
+if __name__ == "__main__":
+    experiment = HPOOpenmlCoClusteringExperiment()
+    experiment.run_from_cli()

@@ -1,0 +1,69 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ml_experiments"
+version = "1.0"
+description = """ml_experiments"""
+readme = "README.md"
+license = "MIT"
+authors = [
+  { name = "Anonymous", email = "anonymous@example.com" },
+]
+maintainers = [
+  { name = "Anonymous", email = "anonymous@example.com" },
+]
+keywords = [
+    "machine learning",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: GPU :: NVIDIA CUDA",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Unix",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "numpy",
+    "scikit-learn",
+    "scikit-posthocs",
+    "pandas",
+    "matplotlib",
+    "seaborn",
+    "plotly",
+    "mlflow",
+    "psycopg2-binary",
+    "ipykernel",
+    "ipywidgets",
+    "dask",
+    "distributed",
+    "dask-jobqueue",
+    "tqdm",
+    "optuna",
+    "openml",
+    "optuna-integration",
+    "func-timeout",
+    "memory-profiler",
+]
+
+[project.urls]
+"Source code" = "https://github.com/Anonymous/ml_experiments"
+
+[project.optional-dependencies]
+test = [
+  "pytest",
+]
+docs = [
+  "sphinx",
+  "sphinx-rtd-theme",
+]
+all = [
+    "ml_experiments[test]",
+    "ml_experiments[docs]",
+]
+
+
